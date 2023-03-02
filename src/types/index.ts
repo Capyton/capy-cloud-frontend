@@ -1,11 +1,24 @@
-export type ThemeColorName = 'black' | 'white';
+export type ThemeColorName =
+  | 'primary'
+  | 'primaryLight'
+  | 'background'
+  | 'black'
+  | 'darkGray'
+  | 'gray'
+  | 'divider'
+  | 'lightGray'
+  | 'white';
 
 export type StaticThemeSettings = {
   color: Record<ThemeColorName, string>;
-  font: string;
+  font: {
+    default: string;
+    materialIcon: string;
+    materialIconOutlined: string;
+  };
   unit: number;
 };
 
 export type Theme = StaticThemeSettings & {
-  sizing: (...sizes: (number | string)[]) => string;
+  sizing: (...sizes: (number | string | undefined)[]) => string;
 };

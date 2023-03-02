@@ -8,8 +8,11 @@ export default defineConfig(() => ({
     alias: {
       app: path.resolve('src/app'),
       components: path.resolve('src/components'),
+      constants: path.resolve('src/constants'),
+      pages: path.resolve('src/pages'),
       store: path.resolve('src/store'),
       types: path.resolve('src/types'),
+      utils: path.resolve('src/utils'),
     },
   },
   plugins: [
