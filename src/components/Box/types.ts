@@ -81,6 +81,5 @@ export type BoxProps = BoxSpacingProps &
     cursor?: Cursor;
     filter?: string;
     userSelect?: UserSelect;
-    borderRadius?: number;
     color?: string;
   };
