@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { styles } from './Box.styles';
+import { boxStyles } from './Box.styles';
 import { BoxProps } from './types';
 
 export const Box = ({
@@ -12,7 +12,7 @@ export const Box = ({
   ...props
 }: PropsWithChildren<BoxProps>) => (
   <div
-    css={styles({
+    css={boxStyles({
       display,
       alignItems,
       justifyContent,
