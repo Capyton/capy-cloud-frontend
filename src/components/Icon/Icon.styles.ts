@@ -7,7 +7,8 @@ const sizes: Record<
   NonNullable<IconProps['size']>,
   (theme: Theme) => string
 > = {
-  default: (theme: Theme) => theme.sizing(5),
+  small: (theme) => theme.sizing(4),
+  default: (theme) => theme.sizing(5),
 };
 
 const getIconFont = (theme: Theme, variant?: IconVariant) =>
@@ -20,6 +21,7 @@ export const styles = {
     (
       color: NonNullable<TypographyProps['color']>,
       size: NonNullable<IconProps['size']>,
+      semiBold?: boolean,
       variant?: IconVariant
     ) =>
     (theme: Theme) =>
@@ -30,6 +32,7 @@ export const styles = {
         font-style: normal;
         font-variant: normal;
         font-weight: 400;
+        ${semiBold && 'font-weight: 600;'}
         line-height: 1;
         speak: none;
         -webkit-font-smoothing: antialiased;

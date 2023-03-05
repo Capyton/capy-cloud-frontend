@@ -82,4 +82,5 @@ export type BoxProps = BoxSpacingProps &
     filter?: string;
     userSelect?: UserSelect;
     color?: string;
+    boxShadow?: string;
   };

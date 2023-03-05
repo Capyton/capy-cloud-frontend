@@ -9,6 +9,7 @@ export const styles = {
     width: 100%;
     height: ${theme.sizing(18)};
     padding: ${theme.sizing(0, 8)};
+    gap: ${theme.sizing(4)};
     position: relative;
 
     &:after {
