@@ -7,12 +7,13 @@ export const Icon = memo(
     className = '',
     color = 'inherit',
     name,
+    semiBold,
     size = 'default',
     variant = 'filled',
     ...props
   }: PropsWithChildren<IconProps>) => (
     <i
-      css={styles.icon(color, size, variant)}
+      css={styles.icon(color, size, semiBold, variant)}
       className={`icon ${className}`}
       {...props}
     >

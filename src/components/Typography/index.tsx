@@ -5,8 +5,10 @@ import { TypographyVariants } from './types';
 
 type TypographyProps = {
   color?: ThemeColorName | 'inherit';
+  component?: keyof JSX.IntrinsicElements;
   nowrap?: boolean;
   notSelectable?: boolean;
+  semiBold?: boolean;
   variant?: TypographyVariants;
 };
 
@@ -20,10 +22,11 @@ const TypographyTags: Record<
 
 export const Typography = ({
   children,
+  component,
   variant = 'bodyText1',
   ...rest
 }: PropsWithChildren<TypographyProps>) => {
-  const TypographyTag = TypographyTags[variant];
+  const TypographyTag = component || TypographyTags[variant];
 
   return (
     <TypographyTag

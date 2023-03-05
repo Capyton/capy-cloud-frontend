@@ -38,7 +38,6 @@ export const boxStyles =
     cursor,
     transform,
     zIndex,
-    borderRadius,
     color,
     maxHeight,
     maxWidth,
@@ -46,6 +45,7 @@ export const boxStyles =
     filter,
     minWidth,
     minHeight,
+    boxShadow,
   }: BoxProps) =>
   (theme: Theme) =>
     css`
@@ -96,9 +96,9 @@ export const boxStyles =
       ${transform && `transform: ${theme.sizing(transform)};`}
       ${zIndex && `z-index: ${zIndex};`}
       
-      ${borderRadius && `border-radius: ${theme.sizing(borderRadius)};`}
       ${color && `color: ${color};`}
       ${cursor && `cursor: ${cursor};`}
       ${filter && `filter: ${filter};`}
       ${userSelect && `user-select: ${userSelect};`}
+      ${boxShadow && `box-shadow: ${boxShadow};`}
     `;
