@@ -11,6 +11,7 @@ export const Box = forwardRef<
       children,
       display = 'block',
       alignItems = 'stretch',
+      alignSelf,
       justifyContent = 'flex-start',
       flexDirection = 'row',
       flexWrap = 'nowrap',
@@ -50,6 +51,7 @@ export const Box = forwardRef<
       minWidth,
       minHeight,
       boxShadow,
+      opacity,
       ...attributes
     },
     ref
@@ -58,6 +60,7 @@ export const Box = forwardRef<
       css={boxStyles({
         display,
         alignItems,
+        alignSelf,
         justifyContent,
         flexDirection,
         flexWrap,
@@ -97,6 +100,7 @@ export const Box = forwardRef<
         minWidth,
         minHeight,
         boxShadow,
+        opacity,
       })}
       {...attributes}
       ref={ref}

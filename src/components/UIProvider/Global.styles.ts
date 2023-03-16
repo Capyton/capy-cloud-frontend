@@ -9,7 +9,7 @@ export const styles = {
     ${font()};
 
     * {
-      font-family: ${theme.font.default};
+      font-family: ${theme.font.primary};
       color: ${theme.color.black};
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -24,5 +24,8 @@ export const styles = {
       height: 100%;
       background: ${theme.color.white};
     }
+    
+    #root {
+      padding: ${theme.sizing(0, 13)};
   `,
 };

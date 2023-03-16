@@ -43,6 +43,7 @@ type BoxSpacingProps = {
 type BoxContainerProps = {
   display?: 'flex' | 'block' | 'inline-flex' | 'inline-block';
   alignItems?: AlignItems | Common;
+  alignSelf?: AlignItems | Common;
   justifyContent?: JustifyContent | Common;
   flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   flexWrap?: 'wrap' | 'nowrap';
@@ -83,4 +84,5 @@ export type BoxProps = BoxSpacingProps &
     userSelect?: UserSelect;
     color?: string;
     boxShadow?: string;
+    opacity?: number | string;
   };

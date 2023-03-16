@@ -1,7 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { ThemeProvider, Global } from '@emotion/react';
 import { StaticThemeSettings, Theme } from 'types';
-import { useIcons } from 'utils';
 import { styles } from './Global.styles';
 
 const makeTheme = (themeSettings: StaticThemeSettings): Theme => {
@@ -30,6 +29,7 @@ const defaultThemeSettings: StaticThemeSettings = {
     primaryLight: 'rgb(235, 239, 255)',
     background: 'rgb(251, 251, 251)',
     black: 'rgb(0, 0, 0)',
+    mateBlack: 'rgb(32, 32, 32)',
     darkGray: 'rgb(98, 98, 98)',
     gray: 'rgb(188, 188, 188)',
     divider: 'rgb(223, 223, 223)',
@@ -37,17 +37,14 @@ const defaultThemeSettings: StaticThemeSettings = {
     white: 'rgb(255, 255, 255)',
   },
   font: {
-    default: "'Manrope', sans-serif",
-    materialIcon: "'Material Icons'",
-    materialIconOutlined: "'Material Icons Outlined'",
+    primary: "'Manrope', sans-serif",
+    secondary: "'Climate Crisis', cursive",
   },
   unit: 4,
 };
 
 export const UIProvider = ({ children }: PropsWithChildren) => {
   const theme: Theme = makeTheme(defaultThemeSettings);
-
-  useIcons();
 
   return (
     <>

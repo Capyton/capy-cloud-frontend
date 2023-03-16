@@ -1,29 +1,22 @@
 import { PropsWithChildren } from 'react';
-import { ThemeColorName } from 'types';
 import { typographyStyle, typographyMap } from './Typography.styles';
-import { TypographyVariants } from './types';
-
-type TypographyProps = {
-  color?: ThemeColorName | 'inherit';
-  component?: keyof JSX.IntrinsicElements;
-  nowrap?: boolean;
-  notSelectable?: boolean;
-  semiBold?: boolean;
-  variant?: TypographyVariants;
-};
+import { TypographyProps } from './types';
 
 const TypographyTags: Record<
   NonNullable<TypographyProps['variant']>,
   keyof JSX.IntrinsicElements
 > = {
+  h1: 'h1',
+  h2: 'h2',
+  subtitle1: 'h5',
+  subtitle2: 'h6',
   bodyText1: 'p',
-  bodyText2: 'p',
 };
 
 export const Typography = ({
   children,
   component,
-  variant = 'bodyText1',
+  variant = 'subtitle2',
   ...rest
 }: PropsWithChildren<TypographyProps>) => {
   const TypographyTag = component || TypographyTags[variant];

@@ -8,6 +8,8 @@ type TypographyStyleProps = {
   semiBold?: TypographyProps['semiBold'];
   bold?: TypographyProps['bold'];
   color?: TypographyProps['color'];
+  fontFamily?: TypographyProps['fontFamily'];
+  textAlign?: TypographyProps['textAlign'];
   fontSize: number;
   lineHeight: number;
   noWrap?: boolean;
@@ -16,15 +18,30 @@ type TypographyStyleProps = {
 type TypographyMap = Record<TypographyVariants, TypographyStyleProps>;
 
 export const typographyMap: TypographyMap = {
-  bodyText1: {
-    fontSize: 4,
-    semiBold: true,
-    lineHeight: 6,
+  h1: {
+    fontSize: 20,
+    regular: true,
+    lineHeight: 27,
   },
-  bodyText2: {
-    fontSize: 3.5,
-    medium: true,
-    lineHeight: 5,
+  h2: {
+    fontSize: 15,
+    bold: true,
+    lineHeight: 22,
+  },
+  subtitle1: {
+    fontSize: 10,
+    bold: true,
+    lineHeight: 13,
+  },
+  subtitle2: {
+    fontSize: 6,
+    regular: true,
+    lineHeight: 8,
+  },
+  bodyText1: {
+    fontSize: 4.5,
+    regular: true,
+    lineHeight: 6,
   },
 };
 
@@ -36,15 +53,18 @@ export const typographyStyle =
     bold,
     color = 'inherit',
     fontSize,
+    fontFamily = 'primary',
     lineHeight,
     noWrap,
+    textAlign = 'left',
   }: TypographyStyleProps) =>
   (theme: Theme) =>
     css`
-      font-family: ${theme.font.default};
+      font-family: ${theme.font[fontFamily]};
       font-size: ${theme.sizing(fontSize)};
       line-height: ${theme.sizing(lineHeight)};
       color: ${color === 'inherit' ? color : theme.color[color]};
+      ${textAlign && `text-align: ${textAlign}`};
       ${regular && 'font-weight: 400'};
       ${medium && 'font-weight: 500'};
       ${semiBold && 'font-weight: 600'};
@@ -53,8 +73,8 @@ export const typographyStyle =
     `;
 
 export const typographyStyles = {
-  bodyText1: (props: Partial<TypographyStyleProps>) =>
-    typographyStyle({ ...typographyMap.bodyText1, ...props }),
-  bodyText2: (props: Partial<TypographyStyleProps>) =>
-    typographyStyle({ ...typographyMap.bodyText2, ...props }),
+  h1: (props: Partial<TypographyStyleProps>) =>
+    typographyStyle({ ...typographyMap.h1, ...props }),
+  subtitle2: (props: Partial<TypographyStyleProps>) =>
+    typographyStyle({ ...typographyMap.subtitle2, ...props }),
 };

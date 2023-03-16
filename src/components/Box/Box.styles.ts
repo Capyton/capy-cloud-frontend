@@ -7,6 +7,7 @@ export const boxStyles =
   ({
     display,
     alignItems,
+    alignSelf,
     justifyContent,
     flexDirection,
     flexWrap,
@@ -46,11 +47,13 @@ export const boxStyles =
     minWidth,
     minHeight,
     boxShadow,
+    opacity,
   }: BoxProps) =>
   (theme: Theme) =>
     css`
       ${display && `display: ${display};`}
       ${alignItems && `align-items: ${alignItems};`}
+      ${alignSelf && `align-self: ${alignSelf};`}
       ${justifyContent && `justify-content: ${justifyContent};`}
       ${flexDirection && `flex-direction: ${flexDirection};`}
       ${flexWrap && `flex-wrap: ${flexWrap};`}
@@ -101,4 +104,5 @@ export const boxStyles =
       ${filter && `filter: ${filter};`}
       ${userSelect && `user-select: ${userSelect};`}
       ${boxShadow && `box-shadow: ${boxShadow};`}
+      ${opacity && `opacity: ${opacity};`}
     `;

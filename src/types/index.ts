@@ -3,6 +3,7 @@ export type ThemeColorName =
   | 'primaryLight'
   | 'background'
   | 'black'
+  | 'mateBlack'
   | 'darkGray'
   | 'gray'
   | 'divider'
@@ -12,9 +13,8 @@ export type ThemeColorName =
 export type StaticThemeSettings = {
   color: Record<ThemeColorName, string>;
   font: {
-    default: string;
-    materialIcon: string;
-    materialIconOutlined: string;
+    primary: string;
+    secondary: string;
   };
   unit: number;
 };

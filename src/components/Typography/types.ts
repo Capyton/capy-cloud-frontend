@@ -1,6 +1,11 @@
-import { ThemeColorName } from 'types';
+import { StaticThemeSettings, ThemeColorName } from 'types';
 
-export type TypographyVariants = 'bodyText1' | 'bodyText2';
+export type TypographyVariants =
+  | 'h1'
+  | 'h2'
+  | 'subtitle1'
+  | 'subtitle2'
+  | 'bodyText1';
 
 export type TypographyProps = {
   /**
@@ -11,6 +16,7 @@ export type TypographyProps = {
    * HTML tag to use for typography container, e.g `div`, `span`, etc.
    */
   component?: keyof JSX.IntrinsicElements;
+  fontFamily?: keyof StaticThemeSettings['font'];
   variant?: TypographyVariants;
   /**
    *  Restrict text wrap
@@ -32,4 +38,5 @@ export type TypographyProps = {
    * forced fontWeight=700
    */
   bold?: boolean;
+  textAlign?: 'left' | 'right' | 'center';
 };

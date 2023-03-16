@@ -1,40 +1,29 @@
-import { Link as RouterLink } from 'react-router-dom';
 import { PropsWithChildren } from 'react';
 import { css } from '@emotion/react';
+import { Theme } from 'types';
 
 type Props = {
   to: string;
-  isExternal?: boolean;
 };
 
 const styles = {
-  link: css`
-    display: inline-block;
-    & > a {
-      color: inherit;
-      text-decoration: none;
-    }
+  link: (theme: Theme) => css`
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: ${theme.color.primary};
+    border-radius: ${theme.sizing(25)};
+    height: ${theme.sizing(12)};
+    padding: ${theme.sizing(0, 8)};
+    color: ${theme.color.white};
+    font-weight: 800;
+    text-decoration: none;
+    font-family: ${theme.font.primary};
   `,
 };
 
-export const Link = ({
-  children,
-  isExternal,
-  to,
-}: PropsWithChildren<Props>) => {
-  if (isExternal) {
-    return (
-      <div css={styles.link}>
-        <a target="_blank" href={to}>
-          {children}
-        </a>
-      </div>
-    );
-  }
-
-  return (
-    <div css={styles.link} className="link">
-      <RouterLink to={to}>{children}</RouterLink>
-    </div>
-  );
-};
+export const Link = ({ children, to }: PropsWithChildren<Props>) => (
+  <a target="_blank" href={to} css={styles.link}>
+    {children}
+  </a>
+);
